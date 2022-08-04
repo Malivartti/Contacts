@@ -26,10 +26,10 @@ const AddContactBtn: FC = () => {
   return (
     <>
       <Button onClick={showModal}>Добавить</Button>
-      <Modal 
-      visible={isModalVisible} 
-      onCancel={handleCancel}
-      footer={null}
+      <Modal
+        visible={isModalVisible}
+        onCancel={handleCancel}
+        footer={null}
       >
         <h2>Новый контакт</h2>
         <Form
@@ -53,7 +53,7 @@ const AddContactBtn: FC = () => {
           <Form.Item
             label="Почта"
             name="email"
-            rules={[{ required: true, message: 'Пожалуйста введите почту!' }]}
+            rules={[{ required: true, message: 'Пожалуйста введите почту!' }, { type: "email", message: "Введите валидную почту!" }]}
           >
             <Input />
           </Form.Item>

@@ -16,14 +16,11 @@ const NavBar: FC = () => {
     nav(RouteNames.LOGIN)
   }
 
-  const items = [
-    { key: 1, label: "Контакты", onClick: () => nav(RouteNames.CONTACTS) },
-   
-  ]
+  const items = [{ key: 1, label: "Контакты", onClick: () => nav(RouteNames.CONTACTS) }]
   if (isAuth) {
     items.push({ key: 2, label: username + ' Выйти', onClick: logout })
   } else {
-    items.push( { key: 2, label: "Логин", onClick: () => nav(RouteNames.LOGIN) })
+    items.push({ key: 2, label: "Логин", onClick: () => nav(RouteNames.LOGIN) })
   }
 
   return (

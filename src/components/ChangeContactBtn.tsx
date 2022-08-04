@@ -59,13 +59,13 @@ const ChangeContactBtn: FC<ChangeContactBtnProps> = ({ contact }) => {
           <Form.Item
             label="Почта"
             name="email"
-            rules={[{ required: true, message: 'Пожалуйста введите почту!' }]}
+            rules={[{ required: true, message: 'Пожалуйста введите почту!' }, {type: "email", message: "Введите валидную почту!"}]}
           >
             <Input />
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit">
-              Добавить
+              Сохранить
             </Button>
           </Form.Item>
         </Form>

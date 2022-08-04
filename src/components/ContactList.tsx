@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC, useEffect, useMemo } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks/redux'
 import { fetchContacts } from '../store/redusers/Contacts/actionCreators';
 import { selectContacts } from '../store/redusers/Contacts/contactsSlice';
@@ -11,7 +11,7 @@ interface ContactListProps {
 const ContactList: FC<ContactListProps> = ({ sort }) => {
   const dispatch = useAppDispatch()
   const { contacts, isLoading, error } = useAppSelector(selectContacts)
-  const filteredContacts = contacts.filter(c => (`${c.firstName} ${c.secondName}`.toLocaleLowerCase()).includes(sort.toLocaleLowerCase()))
+  const filteredContacts = useMemo(() => contacts.filter(c => (`${c.firstName} ${c.secondName}`.toLocaleLowerCase()).includes(sort.toLocaleLowerCase())), [contacts, sort])
 
   useEffect(() => {
     dispatch(fetchContacts())
